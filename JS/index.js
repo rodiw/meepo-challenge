@@ -4,7 +4,7 @@ var getQueryBtn = document.querySelector('#get-query');
 var postQueryBtn = document.querySelector('#post-query');
 var putQueryBtn = document.querySelector('#put-query');
 var deleteQueryBtn = document.querySelector('#delete-query');
-
+var taskList = []
 
 
 
@@ -13,8 +13,9 @@ var deleteQueryBtn = document.querySelector('#delete-query');
 getQueryBtn.addEventListener('click', function () {
     axios.get(url)
     .then(function (response) {
-        console.log(response.data);
+        taskList = response.data;
     });
+    printMethod(taskList);
 });
 
 postQueryBtn.addEventListener('click', function () {
@@ -37,6 +38,12 @@ deleteQueryBtn.addEventListener('click', function () {
     axios.delete(url + '/3' );
 });
 
+
+function printMethod (arr) {
+    arr.forEach(function (val) {
+        console.log(val.description);
+    });
+}
 
 
 

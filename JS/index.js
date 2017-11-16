@@ -4,31 +4,29 @@ var getQueryBtn = document.querySelector('#get-query');
 var postQueryBtn = document.querySelector('#post-query');
 var putQueryBtn = document.querySelector('#put-query');
 var deleteQueryBtn = document.querySelector('#delete-query');
-var taskList = []
 
 
 
 
 /* GET, POST, PUT and DELETE logic */
 getQueryBtn.addEventListener('click', function () {
-    axios.get(url)
-    .then(function (response) {
-        taskList = response.data;
-    });
-    printMethod(taskList);
+    getQuerys();
 });
 
 postQueryBtn.addEventListener('click', function () {
-    axios.post(url, {
+    axios({
+        method: 'POST',
+        url: url,
         data: {
-            description: "Checking if this post-request works",
-            title: "Post-request"
-        }
-    }); 
+            description: "TEST Checking if this post-request works",
+            title: "TEST NEW Post-request" 
+        } 
+    });
+    getQuerys(); 
 });
 
 putQueryBtn.addEventListener('click', function () {
-    axios.put(url + '/4', {
+    axios.put(url + '/29', {
             description: "Checking if this Put-request works",
             title: "Put-request"
         });
@@ -40,10 +38,16 @@ deleteQueryBtn.addEventListener('click', function () {
 
 
 function printMethod (arr) {
+    $('.container').empty()
     arr.forEach(function (val) {
-        console.log(val.description);
+        $('.container').append("<p>" + val.description + "</p>")
     });
 }
 
-
+function getQuerys () {
+    axios.get(url)
+    .then(function (response) {
+        printMethod(response.data);
+    });
+}
 

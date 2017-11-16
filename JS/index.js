@@ -4,6 +4,8 @@ var getQueryBtn = document.querySelector('#get-query');
 var postQueryBtn = document.querySelector('#post-query');
 var putQueryBtn = document.querySelector('#put-query');
 var deleteQueryBtn = document.querySelector('#delete-query');
+var titleInput = document.querySelector("#title");
+var descriptionInput = document.querySelector("#description");
 
 
 
@@ -18,22 +20,35 @@ postQueryBtn.addEventListener('click', function () {
         method: 'POST',
         url: url,
         data: {
-            description: "TEST Checking if this post-request works",
-            title: "TEST NEW Post-request" 
+            description: descriptionInput.value,
+            title: titleInput.value
         } 
+    })
+    .then(setTimeout(getQuerys, 1000))
+    .catch(function (error) {
+        console.log(error);
     });
-    getQuerys(); 
 });
 
 putQueryBtn.addEventListener('click', function () {
-    axios.put(url + '/29', {
-            description: "Checking if this Put-request works",
-            title: "Put-request"
-        });
+    axios.put(url + '/33', {
+        description: descriptionInput.value,
+        title: titleInput.value
+    })
+    .then(getQuerys)
+    .catch(function (error) {
+        console.log(error);
+    });
+
+
 });
 
 deleteQueryBtn.addEventListener('click', function () {
-    axios.delete(url + '/3' );
+    axios.delete(url + '/3' )
+    .then(getQuerys)
+    .catch(function (error) {
+        console.log(error);
+    });
 });
 
 
@@ -48,6 +63,9 @@ function getQuerys () {
     axios.get(url)
     .then(function (response) {
         printMethod(response.data);
+    })
+    .catch(function (error) {
+        console.log(error);
     });
 }
 

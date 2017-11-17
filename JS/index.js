@@ -47,8 +47,12 @@ putQueryBtn.addEventListener('click', function () {
 
 });
 
-deleteQueryBtn.addEventListener('click', function () {
-    
+deleteQueryBtn.addEventListener('click', function () { 
+    axios.delete(url + '/' + deleteInput.value)
+    .then(getQuerys)
+    .catch(function (error) {
+        console.log(error);
+    });
 });
 
 
@@ -69,10 +73,3 @@ function getQuerys () {
     });
 }
 
-function deleteTodo (id) {
-        axios.delete(url + '/' + id.value)
-        .then(getQuerys)
-        .catch(function (error) {
-            console.log(error);
-        });
-}

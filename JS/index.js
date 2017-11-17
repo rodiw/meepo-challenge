@@ -1,3 +1,7 @@
+/* Get the queries */
+window.onload = function () {
+    getQuerys();
+}
 /* Variables declaration */
 var url = 'https://timesheet-1172.appspot.com/42beb4d4/notes';
 var getQueryBtn = document.querySelector('#get-query');
@@ -8,16 +12,6 @@ var titleInput = document.querySelector("#title");
 var descriptionInput = document.querySelector("#description");
 var deleteInput = document.querySelector('#delete-value');
 
-
-var getId = document.querySelectorAll('p');
-
-function deleteQuery() {
-    for (var i = 0; i < getId.length; i++) {
-        getId[i].addEventListener('click', function (event) {
-            console.log(this.id);
-        });
-    }
-}
 
 
 /* GET, POST, PUT and DELETE logic */
@@ -54,12 +48,7 @@ putQueryBtn.addEventListener('click', function () {
 });
 
 deleteQueryBtn.addEventListener('click', function () {
-    console.log(deleteInput.value);
-    axios.delete(url + '/' + deleteInput.value)
-    .then(getQuerys)
-    .catch(function (error) {
-        console.log(error);
-    });
+    
 });
 
 
@@ -80,3 +69,10 @@ function getQuerys () {
     });
 }
 
+function deleteTodo (id) {
+        axios.delete(url + '/' + id.value)
+        .then(getQuerys)
+        .catch(function (error) {
+            console.log(error);
+        });
+}

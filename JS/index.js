@@ -6,8 +6,18 @@ var putQueryBtn = document.querySelector('#put-query');
 var deleteQueryBtn = document.querySelector('#delete-query');
 var titleInput = document.querySelector("#title");
 var descriptionInput = document.querySelector("#description");
+var deleteInput = document.querySelector('#delete-value');
 
 
+var getId = document.querySelectorAll('p');
+
+function deleteQuery() {
+    for (var i = 0; i < getId.length; i++) {
+        getId[i].addEventListener('click', function (event) {
+            console.log(this.id);
+        });
+    }
+}
 
 
 /* GET, POST, PUT and DELETE logic */
@@ -24,7 +34,7 @@ postQueryBtn.addEventListener('click', function () {
             title: titleInput.value
         } 
     })
-    .then(setTimeout(getQuerys, 1000))
+    .then(setTimeout(getQuerys, 400))
     .catch(function (error) {
         console.log(error);
     });
@@ -44,7 +54,8 @@ putQueryBtn.addEventListener('click', function () {
 });
 
 deleteQueryBtn.addEventListener('click', function () {
-    axios.delete(url + '/3' )
+    console.log(deleteInput.value);
+    axios.delete(url + '/' + deleteInput.value)
     .then(getQuerys)
     .catch(function (error) {
         console.log(error);
@@ -55,7 +66,7 @@ deleteQueryBtn.addEventListener('click', function () {
 function printMethod (arr) {
     $('.container').empty()
     arr.forEach(function (val) {
-        $('.container').append("<p>" + val.description + "</p>")
+        $('.container').append("<p data-id=" + val.id + ">" + val.title + ": " + val.description + "</p> <button class='delete'>Delete</button>");
     });
 }
 

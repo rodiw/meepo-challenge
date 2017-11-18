@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: normal 16px sans-serif;
+}
+
+body {
+background: rgba(210, 245, 177, 1);
+background: -moz-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210, 245, 177, 1)), color-stop(86%, rgba(39, 154, 230, 1)), color-stop(100%, rgba(32, 121, 176, 1)));
+background: -webkit-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+background: -o-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+background: -ms-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+background: linear-gradient(to bottom, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2f5b1', endColorstr='#2079b0', GradientType=0);
+    background-size: cover;
+    height: 100%;
+}
+
+button {
+    border: 5px solid white;
+    padding: 15px 50px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 23px;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+    height: 60%;
+}
+
+
+.list-holder {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-card {
+    background-color: rgba(248, 234, 212, 0.75);
+    color: #555;
+    padding: 15px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 60%;
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 0;
+}
+
+.list-card:hover {
+    background-color: rgb(248, 234, 212);
+}
+
+.list-card div {
+    flex-grow: 1;
+    padding-left: 15px;
+}

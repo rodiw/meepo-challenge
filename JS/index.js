@@ -7,11 +7,14 @@ var url = 'https://timesheet-1172.appspot.com/42beb4d4/notes';
 var getQueryBtn = document.querySelector('#get-query');
 var postQueryBtn = document.querySelector('#post-query');
 var putQueryBtn = document.querySelector('#put-query');
-var deleteQueryBtn = document.querySelector('#delete-query');
 var titleInput = document.querySelector("#title");
 var descriptionInput = document.querySelector("#description");
-var deleteInput = document.querySelector('#delete-value');
 
+
+// Gets the attribute ID from the X span
+/*$('.list-holder').on('click', '.delete', function () {
+    console.log($(this).attr("data-id"));
+});*/
 
 
 /* GET, POST, PUT and DELETE logic */
@@ -47,9 +50,9 @@ putQueryBtn.addEventListener('click', function () {
 
 });
 
-deleteQueryBtn.addEventListener('click', function () { 
-    axios.delete(url + '/' + deleteInput.value)
-    .then(getQuerys)
+$('.list-holder').on('click', '.delete', function () {
+    axios.delete(url + '/' + $(this).attr("data-id")) // Gets data-id attribute and deletes it
+    .then(setTimeout(getQuerys, 400))
     .catch(function (error) {
         console.log(error);
     });
@@ -57,9 +60,9 @@ deleteQueryBtn.addEventListener('click', function () {
 
 
 function printMethod (arr) {
-    $('.container').empty()
+    $('.list-holder').empty()
     arr.forEach(function (val) {
-        $('.container').append("<p data-id=" + val.id + ">" + val.title + ": " + val.description + "</p> <button class='delete'>Delete</button>");
+        $('.list-holder').append("<div class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x'></i><div><h2>" + val.title + "</h2><h3>" + val.description + "</h3></div><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
     });
 }
 

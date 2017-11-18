@@ -5,27 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To-do List</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
+
     <div class="container">
+        <div class="list-holder">
+            <div class="list-card">
+                <i class="fa fa-check fa-2x"></i>
+                <div>
+                    <h2>Title</h2>
+                    <h3>Description</h3>
+                </div>
+                <i class="fa fa-times fa-2x delete"></i>
+            </div>
+            <div class="list-card">
+                <h2>Title</h2>
+                <h3>Description</h3>
+            </div>
+        </div>
+        <button id="get-query">Get query</button>
 
+        <div>
+            <input type="text" id="title" placeholder="Title" />
+            <input type="text" id="description" placeholder="Description" />
+            <button id="post-query">Post query</button>
+            <button id="put-query">Put query</button>
+        </div>
     </div>
 
-    <button id="get-query">Get query</button>
 
-    <div>
-        <input type="text" id="delete-value" placeholder="Add a ID to delete">
-        <button id="delete-query">Delete query</button>
-    </div>
-
-    <div>
-        <input type="text" id="title" placeholder="Title"/>
-        <input type="text" id="description" placeholder="Description" />
-        <button id="post-query">Post query</button>
-        <button id="put-query">Put query</button>
-    </div>
     <!-- Vue.js script source -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>

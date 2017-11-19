@@ -13,28 +13,29 @@
 <body>
 
     <div class="container">
-        <div class="list-holder">
-            <div class="list-card">
-                <i class="fa fa-check fa-2x"></i>
-                <div>
-                    <h2>Title</h2>
-                    <h3>Description</h3>
-                </div>
-                <i class="fa fa-times fa-2x delete"></i>
+        <div class="list-card">
+            <div class="input-holder">
+                <input type="text" class="title" placeholder="Title" />
+                <input type="text" class="description" placeholder="Description" />
             </div>
-            <div class="list-card">
-                <h2>Title</h2>
-                <h3>Description</h3>
-            </div>
-        </div>
-        <button id="get-query">Get query</button>
-
-        <div>
-            <input type="text" id="title" placeholder="Title" />
-            <input type="text" id="description" placeholder="Description" />
             <button id="post-query">Post query</button>
             <!--<button id="put-query">Put query</button>-->
         </div>
+        <div class="list-holder">
+            <!-- Activity gets added here -->
+
+            <div id="" class='list-card'>
+                <i data-id="" class='fa fa-check fa-2x done'></i>
+                <div data-id="" class="overlay">
+                    <input type="text" class="title" placeholder="Title" />
+                    <input type="text" class="description" placeholder="Description" />
+                </div>
+                <i data-id="" class='fa fa-pencil-square-o fa-2x edit'></i>
+                <i data-id="" class='fa fa-times fa-2x delete'></i>
+            </div>
+        </div>
+
+
     </div>
 
 

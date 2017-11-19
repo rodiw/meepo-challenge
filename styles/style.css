@@ -48,7 +48,7 @@ input:focus {
     color: rgb(85, 85, 85);
     border-bottom: 2px solid rgb(85, 85, 85);
 }
-.title {
+.title, .add-title {
     font-size: 24px;
     font-weight: bold;
 }

@@ -62,7 +62,7 @@ $('.list-holder').on('click', '.delete', function () {
 function printMethod (arr) {
     $('.list-holder').empty()
     arr.forEach(function (val) {
-        $('.list-holder').append("<div class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x'></i><div><h2>" + val.title + "</h2><h3>" + val.description + "</h3></div><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
+        $('.list-holder').append("<div class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x done'></i><div><h2>" + val.title + "</h2><h3>" + val.description + "</h3></div><i data-id=" + val.id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
     });
 }
 

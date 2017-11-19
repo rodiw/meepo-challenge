@@ -9,16 +9,18 @@ html {
 }
 
 body {
-background: rgba(210, 245, 177, 1);
-background: -moz-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210, 245, 177, 1)), color-stop(86%, rgba(39, 154, 230, 1)), color-stop(100%, rgba(32, 121, 176, 1)));
-background: -webkit-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
-background: -o-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
-background: -ms-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
-background: linear-gradient(to bottom, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2f5b1', endColorstr='#2079b0', GradientType=0);
+    background: rgba(210, 245, 177, 1);
+    background: -moz-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210, 245, 177, 1)), color-stop(86%, rgba(39, 154, 230, 1)), color-stop(100%, rgba(32, 121, 176, 1)));
+    background: -webkit-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+    background: -o-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+    background: linear-gradient(to bottom, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2f5b1', endColorstr='#2079b0', GradientType=0);
     background-size: cover;
     height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 button {
@@ -36,7 +38,7 @@ button {
     justify-content: center;
     align-items: center;
     margin: 100px 0;
-    height: 60%;
+    height:100%;
 }
 
 
@@ -50,7 +52,7 @@ button {
 
 .list-card {
     background-color: rgba(248, 234, 212, 0.75);
-    color: #555;
+    color: rgba(85, 85, 85, 0.75);
     padding: 15px 10px;
     margin: 10px 0;
     border-radius: 10px;
@@ -69,4 +71,34 @@ button {
 .list-card div {
     flex-grow: 1;
     padding-left: 15px;
+}
+
+.delete {
+    color: red;
+    opacity: 0.25;
+    transition: 0.5s;
+}
+
+.delete:hover {
+    opacity: 0.75;
+}
+
+.done {
+    color: rgb(25, 192, 25);
+    opacity: 0.25;
+    transition: 0.5s;
+}
+
+.done:hover {
+    opacity: 0.75;
+}
+
+.edit {
+    opacity: 0.25;
+    transition: 0.5s;
+    margin-right: 15px;
+}
+
+.edit:hover {
+    opacity: 0.75;
 }

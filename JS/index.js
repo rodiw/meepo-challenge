@@ -11,11 +11,6 @@ var titleInput = document.querySelector("#title");
 var descriptionInput = document.querySelector("#description");
 
 
-// Gets the attribute ID from the X span
-/*$('.list-holder').on('click', '.delete', function () {
-    console.log($(this).attr("data-id"));
-});*/
-
 
 /* GET, POST, PUT and DELETE logic */
 getQueryBtn.addEventListener('click', function () {
@@ -37,7 +32,7 @@ postQueryBtn.addEventListener('click', function () {
     });
 });
 
-putQueryBtn.addEventListener('click', function () {
+/*putQueryBtn.addEventListener('click', function () {
     axios.put(url + '/33', {
         description: descriptionInput.value,
         title: titleInput.value
@@ -48,7 +43,7 @@ putQueryBtn.addEventListener('click', function () {
     });
 
 
-});
+});*/
 
 $('.list-holder').on('click', '.delete', function () {
     axios.delete(url + '/' + $(this).attr("data-id")) // Gets data-id attribute and deletes it
@@ -58,11 +53,14 @@ $('.list-holder').on('click', '.delete', function () {
     });
 });
 
+$('.list-holder').on('click', '.done', function () {
+    $('div[data-id=' + $(this).attr('data-id') +']').toggleClass('finished');
+});
 
 function printMethod (arr) {
     $('.list-holder').empty()
     arr.forEach(function (val) {
-        $('.list-holder').append("<div class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x done'></i><div><h2>" + val.title + "</h2><h3>" + val.description + "</h3></div><i data-id=" + val.id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
+        $('.list-holder').append("<div class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x done'></i><div data-id=" + val.id + "><h2>" + val.title + "</h2><h3>" + val.description + "</h3></div><i data-id=" + val.id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
     });
 }
 

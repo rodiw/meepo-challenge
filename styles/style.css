@@ -102,3 +102,8 @@ button {
 .edit:hover {
     opacity: 0.75;
 }
+
+.finished {
+    text-decoration: line-through;
+    color: rgba(85, 85, 85, 0.25);
+}

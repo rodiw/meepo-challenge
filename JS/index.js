@@ -27,7 +27,7 @@ postQueryBtn.addEventListener('click', function () {
         } 
     })
     .then(function (val) {
-        $('.list-holder').append("<div id=" + val.data.id + " class='list-card'><i data-id=" + val.data.id + " class='fa fa-check fa-2x done'></i><div data-id=" + val.data.id + "><input type = 'text' class = 'title' placeholder = 'Title' value='" + val.data.title + "'/><input value='" + val.data.description + "' type = 'text' class = 'description' placeholder = 'Description'/></div><i data-id=" + val.data.id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + val.data.id + " class='fa fa-times fa-2x delete'></i></div>");
+        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Title" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div>`);
     })
     .catch(function (error) {
         console.log(error);
@@ -36,15 +36,16 @@ postQueryBtn.addEventListener('click', function () {
 
 $('.list-holder').on('click', '.edit', function () {
     let id = $(this).attr("data-id");
-    console.log($('.title', id).val(), $('.description', id).val());
+    let titleVal = $(`.title[data-id="${id}"]`).val();
+    let descriptionVal = $(`.description[data-id="${id}"]`).val();
+    console.log(titleVal, descriptionVal);
     axios.put(url + '/' + id, {
-        description: "",
-        title: ""
+        description: descriptionVal,
+        title: titleVal
     })
     .then(function (val) {
         $('div[id=' + id + ']').remove();
-        console.log(val.data);
-        $('.list-holder').append("<div id=" + id + " class='list-card'><i data-id=" + id + " class='fa fa-check fa-2x done'></i><div data-id=" + id + "><input type = 'text' class = 'title' placeholder = 'Title' value='" + val.data.title + "'/><input value='" + val.data.description + "' type = 'text' class = 'description' placeholder = 'Description'/></div><i data-id=" + id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + id + " class='fa fa-times fa-2x delete'></i></div>");
+        $('.list-holder').append(`<div id="${id}" class="list-card"><i data-id="${id}" class="fa fa-check fa-2x done"></i><div data-id="${id}"><input data-id="${id}" type = "text" class = "title" placeholder = "Title" value="${val.data.title}"/><input data-id="${id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${id}" class="fa fa-times fa-2x delete"></i></div>`);
     })
     .catch(function (error) {
         console.log(error);
@@ -71,7 +72,7 @@ function printMethod (arr) {
     arr.forEach(function (val) {
         let title = val.title;
         console.log(title);
-        $('.list-holder').append("<div id=" + val.id + " class='list-card'><i data-id=" + val.id + " class='fa fa-check fa-2x done'></i><div data-id=" + val.id + "><input data-id='" + val.id + "' type='text' class = 'title' placeholder = 'Title' value='" + val.title + "'/><input data-id='" + val.id + "' value='" + val.description + "' type = 'text' class = 'description' placeholder = 'Description'/></div><i data-id=" + val.id + " class='fa fa-pencil-square-o fa-2x edit'></i><i data-id=" + val.id + " class='fa fa-times fa-2x delete'></i></div>");
+        $('.list-holder').append(`<div id="${val.id}" class="list-card"><i data-id="${val.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.id}"><input data-id="${val.id}" type = "text" class = "title" placeholder = "Title" value="${val.title}"/><input data-id="${val.id}" value="${val.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.id}" class="fa fa-times fa-2x delete"></i></div>`);
     });
 }
 

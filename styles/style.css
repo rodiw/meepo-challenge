@@ -156,10 +156,9 @@ input:focus {
 }
 
 .footer p {
-    font-size: 18px;
+    font-size: 24px;
     color: white;
     margin: 15px 0;
-    font-weight: lighter;
 }
 
 .footer a {

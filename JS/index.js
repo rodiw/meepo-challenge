@@ -1,4 +1,4 @@
-/* Get the queries */
+/* Get the queries when you load the site*/
 window.onload = function () {
     axios.get(url)
     .then(function (response) {
@@ -10,6 +10,7 @@ window.onload = function () {
         console.log(error);
     });
 }
+
 /* Variables declaration */
 var url = 'https://timesheet-1172.appspot.com/42beb4d4/notes';
 var postQueryBtn = document.querySelector('#post-query');
@@ -17,6 +18,7 @@ var titleInput = document.querySelector(".add-title");
 var descriptionInput = document.querySelector(".add-description");
 
 
+// Posts a task to the api data-array.
 postQueryBtn.addEventListener('click', function () {
     axios({
         method: 'POST',
@@ -32,6 +34,13 @@ postQueryBtn.addEventListener('click', function () {
     .catch(function (error) {
         console.log(error);
     });
+});
+
+
+// $('.list-holder') makes each icon clickable.
+// by doing it this way you can specify which conent is done, should update or get removed.
+$('.list-holder').on('click', '.done', function () {
+    $('input[data-id=' + $(this).attr('data-id') + ']').toggleClass('finished');
 });
 
 $('.list-holder').on('click', '.edit', function () {
@@ -62,9 +71,6 @@ $('.list-holder').on('click', '.delete', function () {
     });
 });
 
-$('.list-holder').on('click', '.done', function () {
-    $('input[data-id=' + $(this).attr('data-id') +']').toggleClass('finished');
-});
 
 
 

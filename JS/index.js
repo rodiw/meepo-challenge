@@ -3,7 +3,7 @@ window.onload = function () {
     axios.get(url)
     .then(function (response) {
         response.data.forEach(function (val) {
-            $('.list-holder').append(`<div id="${val.id}" class="list-card"><i data-id="${val.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.id}"><input data-id="${val.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.title}"/><input data-id="${val.id}" value="${val.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.id}" class="fa fa-times fa-2x delete"></i></div>`);
+            $('.list-holder').append(`<div id="${val.id}" class="list-card"><i data-id="${val.id}" class="fa fa-check fa-2x done"></i><div class="input-holder" data-id="${val.id}"><input data-id="${val.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.title}"/><input data-id="${val.id}" value="${val.description}" type = "text" class = "description" placeholder = "Description"/></div><div class="icon-holder"><i data-id="${val.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.id}" class="fa fa-times fa-2x delete"></i></div></div>`);
         });
     })
     .catch(function (error) {
@@ -45,7 +45,7 @@ $('.list-holder').on('click', '.edit', function () {
     })
     .then(function (val) {
         $('div[id=' + val.data.id + ']').remove();
-        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div>`);
+        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div class="input-holder" data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><div class="icon-holder"><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div></div>`);
     })
     .catch(function (error) {
         console.log(error);
@@ -74,7 +74,7 @@ function postMethod () {
         }
     })
     .then(function (val) {
-        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div>`);
+        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div class="input-holder" data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><div class="icon-holder"><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div></div>`);
     })
     .catch(function (error) {
         console.log(error);

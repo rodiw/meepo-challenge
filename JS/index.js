@@ -13,27 +13,19 @@ window.onload = function () {
 
 /* Variables declaration */
 var url = 'https://timesheet-1172.appspot.com/42beb4d4/notes';
-var postQueryBtn = document.querySelector('#post-query');
 var titleInput = document.querySelector(".add-title");
 var descriptionInput = document.querySelector(".add-description");
 
 
 // Posts a task to the api data-array.
-postQueryBtn.addEventListener('click', function () {
-    axios({
-        method: 'POST',
-        url: url,
-        data: {
-            description: descriptionInput.value,
-            title: titleInput.value
-        } 
-    })
-    .then(function (val) {
-        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div>`);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+$('#post-query').on('click', function () {
+    postMethod();
+});
+
+$('.add-title, .add-description').on('keypress', function (e) {
+    if (e.which == 13) {
+        postMethod();
+    }
 });
 
 
@@ -71,6 +63,21 @@ $('.list-holder').on('click', '.delete', function () {
     });
 });
 
-
-
+// Made it to a method so enter and click tiggers this function
+function postMethod () {
+    axios({
+        method: 'POST',
+        url: url,
+        data: {
+            description: descriptionInput.value,
+            title: titleInput.value
+        }
+    })
+    .then(function (val) {
+        $('.list-holder').append(`<div id="${val.data.id}" class="list-card"><i data-id="${val.data.id}" class="fa fa-check fa-2x done"></i><div data-id="${val.data.id}"><input data-id="${val.data.id}" type = "text" class = "title" placeholder = "Add an task" value="${val.data.title}"/><input data-id="${val.data.id}" value="${val.data.description}" type = "text" class = "description" placeholder = "Description"/></div><i data-id="${val.data.id}" class="fa fa-pencil-square-o fa-2x edit"></i><i data-id="${val.data.id}" class="fa fa-times fa-2x delete"></i></div>`);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
 

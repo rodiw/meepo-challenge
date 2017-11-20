@@ -3,11 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 html {
     font: normal 16px sans-serif;
 }
-
 body {
     background: rgba(210, 245, 177, 1);
     background: -moz-linear-gradient(top, rgba(210, 245, 177, 1) 0%, rgba(39, 154, 230, 1) 86%, rgba(32, 121, 176, 1) 100%);
@@ -22,7 +20,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
 button {
     padding: 15px 50px;
     background-color: rgba(85, 85, 85, 0.25);
@@ -57,7 +54,6 @@ input:focus {
     display: flex;
     flex-direction: column;
 }
-
 .container {
     display:flex;
     flex-direction: column;
@@ -66,7 +62,6 @@ input:focus {
     margin: 100px 0;
     height:100%;
 }
-
 .list-holder {
     width: 80%;
     display: flex;
@@ -74,7 +69,6 @@ input:focus {
     justify-content: center;
     align-items: center;
 }
-
 .list-card {
     background-color: rgba(248, 234, 212, 0.75);
     color: rgba(85, 85, 85, 0.75);
@@ -88,46 +82,37 @@ input:focus {
     align-items: center;
     flex-grow: 0;
 }
-
 .list-card:hover {
     background-color: rgb(248, 234, 212);
 }
-
 .list-card div {
     flex-grow: 1;
     padding-left: 15px;
 }
-
 .delete {
     color: red;
     opacity: 0.25;
     transition: 0.5s;
 }
-
 .delete:hover {
     opacity: 0.75;
 }
-
 .done {
     color: rgb(25, 192, 25);
     opacity: 0.25;
     transition: 0.5s;
 }
-
 .done:hover {
     opacity: 0.75;
 }
-
 .edit {
     opacity: 0.25;
     transition: 0.5s;
     margin-right: 15px;
 }
-
 .edit:hover {
     opacity: 0.75;
 }
-
 .finished {
     text-decoration: line-through;
     color: rgba(85, 85, 85, 0.25);

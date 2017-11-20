@@ -46,6 +46,7 @@ input {
     font-size: 20px; 
     margin-bottom: 5px;
     transition: 0.5s;
+    border-bottom: 1px solid rgba(85, 85, 85, 0.75);
 }
 input:focus {
     outline: none;
@@ -129,6 +130,7 @@ input:focus {
 .finished {
     text-decoration: line-through;
     color: rgba(85, 85, 85, 0.25);
+    border-bottom: 1px solid rgba(85, 85, 85, 0.25);
 }
 .icon-holder {
     display: flex;
